@@ -4,9 +4,11 @@
 #include <stdio.h>
 #include <signal.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 void handler(int sig) {
-    printf("Recebi sinal %d! (Ctrl+C)\n", sig);
+    printf("Recebi sinal %d! Encerrando programa...\n", sig);
+    exit(0); // encerra o programa
 }
 
 int main() {
