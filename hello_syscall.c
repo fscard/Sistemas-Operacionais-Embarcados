@@ -1,3 +1,6 @@
+// compilar ---- gcc hello_syscall.c -o hello
+// executar ----- ./hello
+
 #include <unistd.h>   // para write e _exit
 
 int main() {
