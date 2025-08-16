@@ -1,6 +1,7 @@
-// Demonstra multitarefa e o gerenciamento de processos.
-// compilar ---- gcc fork.c -o fork
-// executar ----- ./fork
+//  Demonstra multitarefa e o gerenciamento de processos.
+//  gcc fork_example.c -o fork_example
+//  ./fork_example
+
 
 #include <stdio.h>
 #include <unistd.h>
