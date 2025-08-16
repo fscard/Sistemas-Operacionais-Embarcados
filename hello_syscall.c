@@ -1,3 +1,5 @@
+
+// Mostra como usar chamadas de sistema diretamente em C.
 // compilar ---- gcc hello_syscall.c -o hello
 // executar ----- ./hello
 
