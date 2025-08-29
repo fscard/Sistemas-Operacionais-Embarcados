@@ -1,3 +1,6 @@
+//  Demonstra multitarefa e o gerenciamento de processos.
+//  gcc fork_execve.c -o fork_execve
+//  ./fork_execve
 
 
 #include <unistd.h>    // fork(), execve()
