@@ -1,6 +1,8 @@
 // Comunicação entre processos (pipe)
 // Exemplo de IPC simples com pipe.
-
+//
+//  gcc pipe_example.c -o pipe_example
+//  ./pipe_example
 
 #include <stdio.h>
 #include <unistd.h>
