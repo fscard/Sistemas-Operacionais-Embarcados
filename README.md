@@ -1,6 +1,9 @@
 # Sistemas-Operacionais-Embarcados
 
 Laboratório Prático – Sistemas Operacionais Embarcados (Linux)
+
+-----------------------------------------------------------------------------------
+
 🔧 Ambiente
 
 Linux nativo ou em máquina virtual (Ubuntu/Debian recomendados).
@@ -42,7 +45,9 @@ Esperado: duas mensagens, uma do pai e outra do filho.
 -----------------------------------------------------------------------------------
 
 Experimento 3 – Comunicação entre processos (pipe)
+
 Objetivo: Demonstrar IPC (Inter-Process Communication).
+
 Código: pipe_example.c
 
 gcc pipe_example.c -o pipe_example
@@ -56,7 +61,9 @@ Esperado: o pai imprime a mensagem enviada pelo filho.
 
 
 Experimento 4 – Sincronização com Semáforos
+
 Objetivo: Controlar acesso simultâneo a recursos compartilhados.
+
 Código: semaphore_example.c
 
 gcc semaphore_example.c -o semaphore_example -lpthread
@@ -70,7 +77,9 @@ Esperado: execução ordenada das threads sem conflito.
 
 
 Experimento 5 – Tratando sinais (Ctrl+C)
+
 Objetivo: Simular interrupções no espaço do usuário.
+
 Código: signal_example.c
 
 gcc signal_example.c -o signal_example
