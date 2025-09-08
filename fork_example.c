@@ -1,21 +1,50 @@
-//  Demonstra multitarefa e o gerenciamento de processos.
-//  gcc fork_example.c -o fork_example
-//  ./fork_example
+// Comunicação entre processos (pipe)
+// Exemplo de IPC (Inter-Process Communication) simples com pipe.
+//
+// Compilação e execução:
+//   gcc pipe_example.c -o pipe_example
+//   ./pipe_example
 
-
-#include <stdio.h>
-#include <unistd.h>
+#include <stdio.h>    // printf
+#include <unistd.h>   // fork, pipe, read, write, close
+#include <string.h>   // strlen
 
 int main() {
-    pid_t pid = fork(); // cria um processo filho
+    int fd[2];          // descritores de arquivo do pipe: fd[0] = leitura, fd[1] = escrita
+    char buffer[50];    // buffer para armazenar a mensagem lida
 
-    if (pid == 0) {
-        // Código do processo filho
-        printf("Sou o processo filho! PID = %d\n", getpid());
-    } else {
-        // Código do processo pai
-        printf("Sou o processo pai! PID = %d, filho = %d\n", getpid(), pid);
+    // Cria um pipe anônimo (só existe enquanto os processos estiverem vivos).
+    // pipe(fd) preenche fd[0] (leitura) e fd[1] (escrita).
+    if (pipe(fd) == -1) {
+        perror("Erro ao criar pipe");
+        return 1;
     }
 
-    return 0;
+    // Cria um processo filho (duplica o processo atual).
+    if (fork() == 0) {
+        // ================================
+        // BLOCO DO FILHO
+        // ================================
+        close(fd[0]); // o filho não vai ler, então fecha o descritor de leitura
+
+        char msg[] = "Mensagem do filho!";
+        // escreve no pipe: vai para fd[1]
+        // strlen(msg)+1 inclui o '\0' no final da string
+        write(fd[1], msg, strlen(msg)+1);
+
+        close(fd[1]); // fecha o descritor de escrita (boa prática)
+    } else {
+        // ================================
+        // BLOCO DO PAI
+        // ================================
+        close(fd[1]); // o pai não vai escrever, então fecha o descritor de escrita
+
+        // lê do pipe (bloqueia até o filho escrever algo)
+        read(fd[0], buffer, sizeof(buffer));
+
+        // imprime a mensagem recebida do filho
+        printf("Pai recebeu: %s\n", buffer);
+
+        close(fd[0]); // fecha o descritor de leitura
+    }
 }
