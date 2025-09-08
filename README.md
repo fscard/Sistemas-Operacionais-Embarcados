@@ -9,10 +9,15 @@ Editor de texto (nano, vim, VS Code).
 Terminal Linux.
 
 Experimento 1 – Primeira chamada de sistema
+
 Objetivo: Entender chamadas de sistema básicas (write, _exit).
+
 Código: hello_syscall.c
+
 gcc hello_syscall.c -o hello
+
 ./hello
+
 Esperado: mensagem Hello World! no terminal.
 
 
