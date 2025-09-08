@@ -4,8 +4,11 @@ Laboratório Prático – Sistemas Operacionais Embarcados (Linux)
 🔧 Ambiente
 
 Linux nativo ou em máquina virtual (Ubuntu/Debian recomendados).
+
 Compilador GCC.
+
 Editor de texto (nano, vim, VS Code).
+
 Terminal Linux.
 
 Experimento 1 – Primeira chamada de sistema
@@ -21,8 +24,12 @@ gcc hello_syscall.c -o hello
 Esperado: mensagem Hello World! no terminal.
 
 
+
+
 Experimento 2 – Criação de processos com fork
+
 Objetivo: Mostrar como o Linux cria novos processos.
+
 Código: fork_example.c
 
 gcc fork_example.c -o fork_example
