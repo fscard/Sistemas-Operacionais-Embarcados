@@ -88,3 +88,52 @@ gcc signal_example.c -o signal_example
 
 Esperado: ao pressionar Ctrl+C, não encerra o programa imediatamente, mas exibe mensagem de captura do sinal.
 
+
+-----------------------------------------------------------------------------------
+
+
+Experimento 6 – Preempção por fatia de tempo (SCHED_OTHER)
+
+Objetivo: Mostrar que, no escalonador padrão do Linux (CFS/SCHED_OTHER), mesmo sem cooperação (sleep ou yield), o kernel força a troca de CPU entre threads por time slice.
+
+Código: preempt_timeslice.c
+
+gcc preempt_timeslice.c -o preempt_timeslice -lpthread
+
+./preempt_timeslice
+
+Esperado: Dois contadores (t1 e t2) crescem ao mesmo tempo, porque o kernel divide a CPU entre eles de forma preemptiva.
+
+-----------------------------------------------------------------------------------
+
+Experimento 7 – Tempo real (SCHED_FIFO) e fome de CPU (starvation)
+
+Objetivo: Demonstrar que processos em tempo real (SCHED_FIFO) podem monopolizar a CPU e causar starvation em processos normais.
+
+Código: rt_starvation.c
+
+gcc rt_starvation.c -o rt_starvation
+
+sudo taskset -c 0 ./rt_starvation
+
+Esperado: O filho em tempo real imprime mensagens continuamente e ocupa a CPU. O pai, rodando em SCHED_OTHER, quase não consegue imprimir porque sofre starvation.
+
+Dica: se o pai ainda imprimir com frequência, é por causa do RT throttling do kernel (reserva ~5% do tempo do core para tarefas não-RT).
+
+-----------------------------------------------------------------------------------
+
+Experimento 8 – Prioridade dinâmica com nice (SCHED_OTHER)
+
+Objetivo: Mostrar que no escalonador CFS (SCHED_OTHER) todos os processos continuam preemptivos, mas a distribuição da CPU depende da prioridade dinâmica (nice).
+
+Código: nice_demo.c
+
+gcc nice_demo.c -o nice_demo
+
+sudo ./nice_demo
+
+Esperado: O processo com nice=-5 incrementa seu contador mais rápido, enquanto o com nice=+15 progride mais devagar. Ambos continuam rodando, mas com fatias de CPU desbalanceadas conforme a prioridade.
+
+
+
+
