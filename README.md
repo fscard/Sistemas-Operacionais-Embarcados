@@ -1,6 +1,6 @@
-# Sistemas-Operacionais-Embarcados
+# Sistemas-Operacionais-Embarcados e Sistemas de Tempo Real
 
-Laboratório Prático – Sistemas Operacionais Embarcados (Linux)
+Laboratório Prático – Sistemas Operacionais Embarcados e Sistemas de Tempo Real (Linux)
 
 -----------------------------------------------------------------------------------
 
