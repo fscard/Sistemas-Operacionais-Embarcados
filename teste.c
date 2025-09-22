@@ -1,8 +1,8 @@
 
-//  Compilar 
-//  gcc teste.c -o teste
-//  Executar
-//  ./teste
+
+//
+// gcc teste.c -o teste
+// ./teste
 
 #include <stdio.h>
 #include <sys/types.h>
