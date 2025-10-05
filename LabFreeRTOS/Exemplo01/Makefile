@@ -1,5 +1,5 @@
 # Caminho para o kernel FreeRTOS
-FREERTOS_DIR = ../../Oficial/FreeRTOS/FreeRTOS
+FREERTOS_DIR = ../../FreeRTOS/FreeRTOS
 
 
 # Nome do executável
