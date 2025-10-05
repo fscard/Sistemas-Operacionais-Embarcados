@@ -1,5 +1,6 @@
 # Caminho para o kernel FreeRTOS
-FREERTOS_DIR = ../../FreeRTOS/FreeRTOS
+FREERTOS_DIR = ../../Oficial/FreeRTOS/FreeRTOS
+
 
 # Nome do executável
 TARGET = build/meu_exemplo1_3tasks
@@ -25,7 +26,7 @@ SRC = \
     $(FREERTOS_DIR)/Source/timers.c \
     $(FREERTOS_DIR)/Source/event_groups.c \
     $(FREERTOS_DIR)/Source/portable/ThirdParty/GCC/Posix/port.c \
-    $(FREERTOS_DIR)/Source/portable/ThirdParty/GCC/Posix/utils/wait_for_event.c \
+	$(FREERTOS_DIR)/Source/portable/ThirdParty/GCC/Posix/utils/wait_for_event.c \
     $(FREERTOS_DIR)/Source/portable/MemMang/heap_3.c
 
 # Regras
