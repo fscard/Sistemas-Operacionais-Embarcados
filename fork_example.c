@@ -2,8 +2,8 @@
 // Exemplo de IPC (Inter-Process Communication) simples com pipe.
 //
 // Compilação e execução:
-//   gcc pipe_example.c -o pipe_example
-//   ./pipe_example
+//   gcc fork_example.c -o fork_example
+//   ./fork_example
 
 #include <stdio.h>    // printf
 #include <unistd.h>   // fork, pipe, read, write, close
