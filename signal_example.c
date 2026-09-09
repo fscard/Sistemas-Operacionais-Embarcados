@@ -1,6 +1,10 @@
 // Tratando sinais (interrupções no espaço do usuário)
 // Simula interrupções com signal handling.
 
+//
+// gcc signal_example.c -o signal_example
+// ./signal_example
+
 #include <stdio.h>
 #include <signal.h>
 #include <unistd.h>
